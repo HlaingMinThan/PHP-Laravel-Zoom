@@ -126,3 +126,54 @@
 // foreach ($names as  $name) {
 //     echo $name;
 // }
+
+// PHP Class
+
+class Car
+{
+    private $wheels = 4;
+    private $name; // lambo ,mark2
+
+    public function __construct($name)
+    {
+        $this->buildEngine();
+        $this->name = $name;
+    }
+
+    public function drive()
+    {
+        return $this->name . " is driving <br>";
+    }
+
+    public function getWheels()
+    {
+        return $this->wheels;
+    }
+
+    public function setWheels($wheels)
+    {
+        $this->wheels = $wheels;
+    }
+
+    public function buildEngine()
+    {
+        echo 'Engine is building<br>';
+    }
+}
+
+class Truck extends Car
+{
+}
+
+$truck = new Truck("Truck");
+echo $truck->drive();
+
+// $car = new Car('Lambohghini'); //create
+// echo $car->drive();
+
+
+// $child = new Child;
+// echo $child->play();
+
+// $parents = new Parents;
+// echo $parents->play();
