@@ -132,7 +132,7 @@
 class Car
 {
     private $wheels = 4;
-    private $name; // lambo ,mark2
+    protected $name; // lambo ,mark2
 
     public function __construct($name)
     {
@@ -163,14 +163,17 @@ class Car
 
 class Truck extends Car
 {
+    public function getName()
+    {
+        return $this->name;
+    }
 }
 
-$truck = new Truck("Truck");
-echo $truck->drive();
+$truck = new Truck("Truck Name");
+echo $truck->getName();
 
 // $car = new Car('Lambohghini'); //create
 // echo $car->drive();
-
 
 // $child = new Child;
 // echo $child->play();
