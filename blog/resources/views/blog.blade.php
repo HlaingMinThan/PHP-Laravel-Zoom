@@ -12,10 +12,14 @@
         content="ie=edge"
     >
     <title>Document</title>
+    <link
+        rel="stylesheet"
+        href="/css/app.css"
+    >
 </head>
 
 <body>
-    <h1>My Name is {{$name}}</h1>
+    {!!$blog!!}
 </body>
 
 </html>
