@@ -20,14 +20,14 @@
 
 <body>
     <div class="container">
-        <?php foreach($blogs as $blog) : ?>
+        @foreach($blogs as $blog)
         <article class="container">
             <h1>
                 <a href="/blogs/{{$blog->slug}}">{{$blog->title}}</a>
             </h1>
             <p class="text-gray">{{$blog->body}}</p>
         </article>
-        <?php endforeach; ?>
+        @endforeach
     </div>
 </body>
 
