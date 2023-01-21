@@ -1,24 +1,19 @@
 <?php
 
+use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('blogs');
+    $blogs = Blog::all();
+    return view('blogs', [
+        'blogs' => $blogs
+    ]);
 });
 
 //wildcard
 Route::get('/blogs/{filename}', function ($filename) {
-    $path = resource_path("/blogs/$filename.html"); //absolute path -> os -> no issue
-
-    if (!file_exists($path)) {
-        return redirect('/');
-    }
-    //cache concept
-    $blogContent = cache()->remember("posts.$filename", now()->addMinutes(2), function () use ($path) {
-        return file_get_contents($path); //operation
-    }); //saved in the server memory for 5 seconds
-
+    $blog = Blog::find($filename);
     return view('blog', [
-        'blog' => $blogContent
+        'blog' => $blog
     ]);
 })->where('filename', '[A-z\d\-_]+');//wildcard constrained

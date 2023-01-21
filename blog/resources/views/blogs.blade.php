@@ -20,30 +20,14 @@
 
 <body>
     <div class="container">
-        <article>
+        <?php foreach($blogs as $blog) : ?>
+        <article class="container">
             <h1>
-                <a href="/blogs/first-blog">First Blog</a>
+                <a href="/blogs/{{$blog->slug}}">{{$blog->title}}</a>
             </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias amet nisi deleniti doloremque earum
-                iusto inventore quos incidunt sint quia eum sapiente iure, animi veritatis odit sed nobis quasi
-                praesentium.</p>
+            <p class="text-gray">{{$blog->body}}</p>
         </article>
-        <article>
-            <h1>
-                <a href="/blogs/first-blog">Second Blog</a>
-            </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias amet nisi deleniti doloremque earum
-                iusto inventore quos incidunt sint quia eum sapiente iure, animi veritatis odit sed nobis quasi
-                praesentium.</p>
-        </article>
-        <article>
-            <h1>
-                <a href="/blogs/first-blog">Third Blog</a>
-            </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias amet nisi deleniti doloremque earum
-                iusto inventore quos incidunt sint quia eum sapiente iure, animi veritatis odit sed nobis quasi
-                praesentium.</p>
-        </article>
+        <?php endforeach; ?>
     </div>
 </body>
 

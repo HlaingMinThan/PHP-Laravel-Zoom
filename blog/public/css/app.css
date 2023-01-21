@@ -2,3 +2,7 @@
     max-width: 800px;
     margin: auto;
 }
+
+.text-gray {
+    color: gray;
+}
