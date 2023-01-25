@@ -23,7 +23,7 @@
         @foreach($blogs as $blog)
         <article class="container">
             <h1>
-                <a href="/blogs/{{$blog->slug}}">{{$blog->title}}</a>
+                <a href="/blogs/{{$blog->slug}}">{{$blog->title}} - {{$blog->date}}</a>
             </h1>
             <p class="text-gray">{{$blog->body}}</p>
         </article>

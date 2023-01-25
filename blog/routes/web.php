@@ -11,9 +11,10 @@ Route::get('/', function () {
 });
 
 //wildcard
-Route::get('/blogs/{filename}', function ($filename) {
-    $blog = Blog::find($filename);
+Route::get('/blogs/{slug}', function ($slug) {
+    $blog = Blog::findOrFail($slug);
+
     return view('blog', [
         'blog' => $blog
     ]);
-})->where('filename', '[A-z\d\-_]+');//wildcard constrained
+})->where('slug', '[A-z\d\-_]+');//wildcard constrained
