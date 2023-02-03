@@ -19,16 +19,15 @@ use App\Models\User;
 
 Route::get('/', [BlogController::class, 'index']);
 
-Route::get('/blogs/{blog:slug}', function (Blog $blog) {
-    return view('blog', [
-        'blog' => $blog,
-        'randomBlogs' => Blog::inRandomOrder()->take(3)->get()
-    ]);
-})->where('blog', '[A-z\d\-_]+');
+Route::get('/blogs/{blog:slug}', [BlogController::class, 'show'])->where('blog', '[A-z\d\-_]+');
 
-Route::get('/users/{user:username}', function (User $user) {
-    return view('blogs', [
-        'blogs' => $user->blogs,
-        'categories' => Category::all()
-    ]);
-});
+
+// RestFul API Naming Convention
+
+// all -> index
+// one data -> show
+// create page -> create
+// store -> store
+// edit -> edit
+// update -> update
+// destroy -> destroy
