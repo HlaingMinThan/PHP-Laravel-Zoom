@@ -1,8 +1,5 @@
-.container {
-    max-width: 800px;
+body{
+    background-color: white;
+    max-width: 600px;
     margin: auto;
-}
-
-.text-gray {
-    color: gray;
 }

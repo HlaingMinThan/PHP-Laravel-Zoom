@@ -2,26 +2,34 @@
 
 namespace Database\Factories;
 
+use App\Models\Blog;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Blog>
- */
 class BlogFactory extends Factory
 {
     /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Blog::class;
+
+    /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function definition()
     {
         return [
-            'title' => fake()->sentence(),
-            'slug' => fake()->slug(),
-            'body' => fake()->paragraph(),
-            'category_id' => Category::factory()
+            'category_id'=>Category::factory(),//1
+            'title'=>$this->faker->sentence(),
+            'slug'=>$this->faker->slug(),
+            'intro'=>$this->faker->sentence(),
+            'body'=>$this->faker->paragraph(),
+            'user_id'=>User::factory()//1
         ];
     }
 }

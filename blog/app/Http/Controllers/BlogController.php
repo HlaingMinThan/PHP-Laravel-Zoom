@@ -3,22 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use Illuminate\Http\Request;
+use App\Models\Category;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('category')->get();
         return view('blogs', [
-            'blogs' => $blogs
-        ]);
-    }
-
-    public function show(Blog $blog)
-    {
-        return view('blog', [
-            'blog' => $blog
+            'blogs' =>  Blog::latest()->filter(request(['search', 'category', 'author']))->get(),
+            'categories' => Category::all(),
+            'currentCategory' => Category::where('slug', request('category'))->first()
         ]);
     }
 }
