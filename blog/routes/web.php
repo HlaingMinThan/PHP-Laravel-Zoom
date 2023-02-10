@@ -21,6 +21,9 @@ Route::get('/', [BlogController::class, 'index']);
 
 Route::get('/blogs/{blog:slug}', [BlogController::class, 'show'])->where('blog', '[A-z\d\-_]+');
 
+Route::get('/register', function () {
+    return view('register.create');
+});
 
 // RestFul API Naming Convention
 
