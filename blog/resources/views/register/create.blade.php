@@ -14,7 +14,7 @@
                                 class="form-label"
                             >Name</label>
                             <input
-                                type="email"
+                                type="text"
                                 class="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
@@ -26,7 +26,7 @@
                                 class="form-label"
                             >Username</label>
                             <input
-                                type="email"
+                                type="text"
                                 class="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
