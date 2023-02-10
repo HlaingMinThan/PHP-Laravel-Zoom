@@ -24,7 +24,7 @@
 
     <div>
         <x-navbar />
-        <div style="height:75vh">{{$slot}}</div>
+        {{$slot}}
         <x-footer />
     </div>
     <script
