@@ -54,6 +54,12 @@ class User extends Authenticatable
         return ucfirst($value); //uppercase
     }
 
+    //accessor
+    public function getProfileAttribute($value)
+    {
+        return $value ? $value : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
+    }
+
     //mutator
     public function setPasswordAttribute($value)
     {

@@ -18,7 +18,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
         if (auth()->attempt(['email' => request('email'), 'password' => request('password')])) {
-            return redirect('/')->with('success', 'welcome back');
+            return  redirect()->intended(route('home'))->with('success', 'welcome back');
         }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',

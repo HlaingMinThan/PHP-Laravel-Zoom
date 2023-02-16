@@ -25,9 +25,7 @@
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
                             >
-                            @error('email')
-                            <p class="text-danger my-2">{{$message}}</p>
-                            @enderror
+                            <x-error name="email" />
                         </div>
                         <div class="mb-3">
                             <label
@@ -40,9 +38,7 @@
                                 class="form-control"
                                 id="exampleInputPassword1"
                             >
-                            @error('password')
-                            <p class="text-danger my-2">{{$message}}</p>
-                            @enderror
+                            <x-error name="password" />
                         </div>
                         <button
                             type="submit"

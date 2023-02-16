@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BlogController::class, 'index']);
+Route::get('/', [BlogController::class, 'index'])->name('home');
 
 Route::get('/blogs/{blog:slug}', [BlogController::class, 'show'])->where('blog', '[A-z\d\-_]+');
 
@@ -18,6 +19,8 @@ Route::post('/login', [AuthController::class, 'loginStore']);
 
 Route::post('/logout', [AuthController::class, 'logout']);
 
+//comments
+Route::post('/blogs/{blog:slug}/comments', [CommentController::class, 'store'])->name('blogs.comments.store');
 // RestFul API Naming Convention
 
 // all -> index
