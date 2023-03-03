@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -35,7 +36,7 @@ class AuthController extends Controller
         $cleanData = request()->validate([
             'name' => 'required',
             'username' => ['required', 'max:8'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required'
         ], [
             'email.required' => 'We need to know your email address!',

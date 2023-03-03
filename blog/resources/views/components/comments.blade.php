@@ -35,5 +35,7 @@
         <x-single-comment :comment="$comment" />
         @endforeach
         @endif
+
+        {{$comments->links()}}
     </div>
 </section>

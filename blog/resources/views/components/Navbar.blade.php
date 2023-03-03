@@ -17,10 +17,6 @@
                 href="/#blogs"
                 class="nav-link"
             >Blogs</a>
-            <a
-                href="#subscribe"
-                class="nav-link"
-            >Subscribe</a>
 
             @if (auth()->check())
             <form

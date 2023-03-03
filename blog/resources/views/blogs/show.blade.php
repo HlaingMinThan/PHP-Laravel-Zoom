@@ -14,6 +14,28 @@
                     <div><a href="/categories/{{$blog->category->slug}}"><span
                                 class="badge bg-primary">{{$blog->category->name}}</span></a></div>
                     <div class="text-secondary">{{$blog->created_at->diffForHumans()}}</div>
+                    @auth
+                    <div class="text-secondary">
+                        <form
+                            action="/blogs/{{$blog->slug}}/subscription"
+                            method="POST"
+                        >
+                            @csrf
+                            @if (auth()->user()->isSubscribed($blog))
+                            <button
+                                class="btn btn-danger"
+                                type="submit"
+                            >unsubscribe</button>
+                            @else
+                            <button
+                                class="btn btn-warning"
+                                type="submit"
+                            >subscribe</button>
+                            @endif
+                        </form>
+                    </div>
+                    @endauth
+
                 </div>
                 <p class="lh-md mt-3">
                     {{$blog->body}}
@@ -22,9 +44,8 @@
         </div>
     </div>
     <x-comments
-        :comments="$blog->comments"
+        :comments="$blog->comments()->paginate(5)"
         :blog="$blog"
     />
-    <x-subscribe />
     <x-blogs_you_may_like_section :randomBlogs="$randomBlogs" />
 </x-layout>
