@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Middleware\AdminMiddleware;
 use App\Mail\SubscriberMail;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +31,15 @@ Route::post('/blogs/{blog:slug}/comments', [CommentController::class, 'store'])-
 
 //subscription route
 Route::post('/blogs/{blog:slug}/subscription', [SubscriptionController::class, 'toggleSubscription']);
+
+Route::middleware('admin')->prefix('/admin')->group(function () {
+    Route::get('', [AdminBlogController::class, 'index']);
+    Route::get('/blogs/create', [AdminBlogController::class, 'create']);
+
+    Route::post('/blogs', [AdminBlogController::class, 'store']);
+    Route::delete('/blogs/{blog}', [AdminBlogController::class, 'destroy']);
+});
+
 // RestFul API Naming Convention
 
 // all -> index

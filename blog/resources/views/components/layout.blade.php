@@ -18,6 +18,17 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
         crossorigin="anonymous"
     />
+
+    <!-- include libraries(jQuery, bootstrap) -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+        rel="stylesheet"
+    >
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 
 <body id="home">
@@ -32,6 +43,11 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"
     ></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
 </body>
 
 </html>

@@ -13,6 +13,12 @@
                 href="/"
                 class="nav-link"
             >Home</a>
+            @can('admin')
+            <a
+                href="/admin"
+                class="nav-link"
+            >Dashboard</a>
+            @endcan
             <a
                 href="/#blogs"
                 class="nav-link"

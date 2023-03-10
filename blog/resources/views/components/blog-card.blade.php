@@ -1,7 +1,8 @@
 @props(['blog'])
 <div class="card">
+    {{-- https://creativecoder.s3.ap-southeast-1.amazonaws.com/blogs/GOLwpsybfhxH0DW8O6tRvpm4jCR6MZvDtGOFgjq0.jpg --}}
     <img
-        src="https://creativecoder.s3.ap-southeast-1.amazonaws.com/blogs/GOLwpsybfhxH0DW8O6tRvpm4jCR6MZvDtGOFgjq0.jpg"
+        src="/storage/{{$blog->photo}}"
         class="card-img-top"
         alt="..."
     />
